@@ -12,17 +12,17 @@ export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    title: 'FreshFireFinder - Login',
+    title: 'FreshFareFinder - Login',
   },
   {
     path: 'signUp',
     component: SignUpComponent,
-    title: 'FreshFireFinder - SignUp',
+    title: 'FreshFareFinder - SignUp',
   },
   {
     path: 'account',
     component: AccountComponent,
-    title: 'FreshFireFinder - Profile',
+    title: 'FreshFareFinder - Profile',
     canActivate: [loginCheckGuard],
   },
   {
