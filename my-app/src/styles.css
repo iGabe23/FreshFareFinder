@@ -1,0 +1,97 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Zilla%20Slab:700|Red%20Hat%20Display:400");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colors */
+  --body-color: #e9e5d6;
+  --sidebar-color: #fff;
+  --primary-color: #464e2e;
+  --primary-color-light: #acb992;
+  --toggle-color: #ddd;
+  --text-color: #747474;
+  --icon-color: #000;
+  --text-color-hover: #fff;
+  --icon-color-hover: #fff;
+  /* old-colors */
+  --second-color-light: #f9efdb;
+  --white-color: #e9e5d6;
+  --dark-color: #464e2e;
+  --brown-color: #362706;
+  /* Tamaños */
+  --header-height: 3rem;
+  --nav-width: 6.8rem;
+  --normal-font-size: 1rem;
+  /* Transiciones */
+  --tran-02: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.4s ease;
+  --tran-05: all 0.5s ease;
+  --z-fixed: 10;
+  /* bootstrap */
+  --bs-body-color-rgb: #acb992;
+  /* Main */
+  --white: #f8f6f4;
+  --black: #28292a;
+  --green: #606c5d;
+  --beige: #e0ccbe;
+  --pink: #ffabab;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Red Hat Display";
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Zilla Slab";
+  font-weight: 700;
+}
+
+html {
+  font-size: 100%;
+} /* 16px */
+
+h1 {
+  font-size: 4.21rem; /* 67.36px */
+}
+
+h2 {
+  font-size: 3.158rem; /* 50.56px */
+}
+
+h3 {
+  font-size: 2.369rem; /* 37.92px */
+}
+
+h4 {
+  font-size: 1.777rem; /* 28.48px */
+}
+
+h5 {
+  font-size: 1.333rem; /* 21.28px */
+}
+
+small {
+  font-size: 0.75rem; /* 12px */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
