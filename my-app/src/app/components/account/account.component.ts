@@ -20,6 +20,7 @@ export class AccountComponent {
   recipesService = inject(MyRecipeService);
 
   //Propiedades-Variables
+  userName: string = '';
   userId: string = '';
   recipeId: string = '';
   recipesForId: any = [];
@@ -74,6 +75,7 @@ export class AccountComponent {
     if (token) {
       this.loginService.verifyToken(token).subscribe((res: any) => {
         if (res.result === 'good') {
+          this.userName = res.data.username;
           this.userId = res.data.id;
           this.recipeModel.id = res.data.id;
           console.log(this.userId);

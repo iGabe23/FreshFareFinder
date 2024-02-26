@@ -16,6 +16,7 @@ module.exports = {
       bermuda: "#78dcca",
     },
     extend: {},
+    darkMode: "class",
   },
   plugins: [
     require("flowbite/plugin"),
