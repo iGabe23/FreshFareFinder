@@ -8,7 +8,7 @@ import { FAQComponent } from './components/faq/faq.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent, title: 'FreshFireFinder - Home' },
+  { path: 'home', component: HomeComponent, title: 'FreshFareFinder - Home' },
   {
     path: 'login',
     component: LoginComponent,

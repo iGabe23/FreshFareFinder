@@ -48,13 +48,13 @@ export class LoginComponent {
           console.log('user decoded');
           console.log(decoded);
           //Pop up message
-          //Almacenar en el localstorage el token
+          //Almacenar el token en el localstorage
           localStorage.setItem('token', res.data.token);
           //Almacenar información de usuario en el almacenamiento local de la pagina
           //localStorage.setItem('data', decoded.id);
           this.router.navigate(['/account']);
         } else {
-          console.log('something went wrong');
+          console.log('something went wrong with manage login');
           //pop up error message
         }
       });
