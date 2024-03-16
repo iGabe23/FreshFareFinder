@@ -1,8 +1,15 @@
+
 export interface Recipe {
-  id: string;
-  name: string;
-  ingredients: string[];
-  steps: string[];
+  id: String;
+  name: String;
+  ingredients: string;
+  steps: string;
+  description: String;
+  source: String;
+  serves: string;
+  time: string;
+  tags: String;
+  notes: String;
 }
 
 export interface Credentials {

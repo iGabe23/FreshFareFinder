@@ -4,11 +4,12 @@ import { MyRecipeService } from '../../services/my-recipe.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { Recipe } from '../../interfaces/my-interfaces';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-account',
   standalone: true,
-  imports: [RouterLink, FormsModule, ReactiveFormsModule],
+  imports: [RouterLink, FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './account.component.html',
   styleUrl: './account.component.css',
 })
@@ -26,16 +27,29 @@ export class AccountComponent {
   recipesForId: any = [];
   recipesForUserId: any = [];
   recipeSelected: any = {};
+  recipeIngredients: any = '';
 
   //Modelo Receta
   recipeModel: Recipe = {
     id: '',
     name: '',
-    ingredients: [''],
-    steps: [''],
+    ingredients: '',
+    steps: '',
+    description: '',
+    source: '',
+    serves: '',
+    time: '',
+    tags: '',
+    notes: '',
   };
 
   //Métodos para manejar funciones
+  manageCreateRecipe() {
+    this.recipesService.create(this.recipeModel).subscribe((res: any) => {
+      console.log(res);
+      window.location.reload();
+    });
+  }
   manageReadSingleRecipe(id: string) {
     this.recipesService.read(id).subscribe((res: any) => {
       this.recipeId = id;
@@ -47,12 +61,6 @@ export class AccountComponent {
     this.RecipeService.readAllById(this.userId).subscribe((response: any) => {
       this.recipesForUserId = response.data;
       console.log(this.recipesForUserId);
-    });
-  }
-  manageCreateRecipe() {
-    this.recipesService.create(this.recipeModel).subscribe((res: any) => {
-      console.log(res);
-      this.manageReadAllRecipes();
     });
   }
   manageUpdateRecipe(id: string) {
@@ -78,6 +86,7 @@ export class AccountComponent {
           this.userName = res.data.username;
           this.userId = res.data.id;
           this.recipeModel.id = res.data.id;
+          console.log(res);
           console.log(this.userId);
           this.manageReadAllRecipes();
         } else {

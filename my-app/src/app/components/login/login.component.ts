@@ -52,7 +52,8 @@ export class LoginComponent {
           localStorage.setItem('token', res.data.token);
           //Almacenar información de usuario en el almacenamiento local de la pagina
           //localStorage.setItem('data', decoded.id);
-          this.router.navigate(['/account']);
+          //this.router.navigate(['/account']);
+          window.location.replace('/account');
         } else {
           console.log('something went wrong with manage login');
           //pop up error message

@@ -5,6 +5,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .my-scrollbar::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+  .my-scrollbar::-webkit-scrollbar-track {
+    background-color: #141414;
+  }
+  .my-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #4e9b47;
+    border-radius: 4px;
+  }
+  .my-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #008000;
+  }
+}
+
 :root {
   /* Colors */
   --body-color: #e9e5d6;
