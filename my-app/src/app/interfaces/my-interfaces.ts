@@ -1,15 +1,20 @@
-
 export interface Recipe {
-  id: String;
-  name: String;
+  id: string;
+  name: string;
   ingredients: string;
   steps: string;
-  description: String;
-  source: String;
-  serves: string;
-  time: string;
-  tags: String;
-  notes: String;
+  description: string;
+  source: string;
+  serves: number;
+  time: number;
+  tags: string;
+  notes: string;
+  fav?: boolean;
+}
+
+export interface Token {
+  userId: string;
+  userName: string;
 }
 
 export interface Credentials {
@@ -21,4 +26,8 @@ export interface User {
   username: string;
   email: string;
   password: string;
+}
+
+export interface isFavOn {
+  showOnlyFavorite: boolean;
 }

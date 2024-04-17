@@ -6,6 +6,7 @@ import { loginCheckGuard } from './guards/login-check.guard';
 import { LoginComponent } from './components/login/login.component';
 import { FAQComponent } from './components/faq/faq.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+import { RecipeContentComponent } from './components/recipe-content/recipe-content.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent, title: 'FreshFareFinder - Home' },
@@ -24,6 +25,22 @@ export const routes: Routes = [
     component: AccountComponent,
     title: 'FreshFareFinder - Profile',
     canActivate: [loginCheckGuard],
+  },
+  {
+    path: 'recipe-content',
+    title: 'FreshFareFinder - Recipes',
+    loadComponent: () =>
+      import('./components/recipe-content//recipe-content.component').then(
+        (c) => c.RecipeContentComponent
+      ),
+  },
+  {
+    path: 'update-content',
+    title: 'FreshFareFinder - Update',
+    loadComponent: () =>
+      import(
+        './components/update-recipe-drawer/update-recipe-drawer.component'
+      ).then((c) => c.UpdateRecipeDrawerComponent),
   },
   {
     path: 'FAQ',

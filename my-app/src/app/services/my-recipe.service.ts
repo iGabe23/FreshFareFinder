@@ -18,7 +18,7 @@ export class MyRecipeService {
     // la unica función de estos método es retornar lo que está dentro de ellos
     return this.httpClient.post(this.API_URL, recipe);
   }
-  readAllById(id: string) {
+  readAllById(id: string | undefined) {
     return this.httpClient.get(`${this.API_URL3}/${id}`);
   }
   readAll() {
