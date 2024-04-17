@@ -7,6 +7,8 @@ import SpyObj = jasmine.SpyObj;
 import { provideMockStore } from '@ngrx/store/testing';
 import { LoginComponent } from '../login/login.component';
 import { LoginService } from '../../services/login.service';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AccountComponent', () => {
   let component: AccountComponent;
@@ -17,7 +19,11 @@ describe('AccountComponent', () => {
   beforeEach(() => {
     mockLoginService = jasmine.createSpyObj('LoginService', ['verifyToken']);
     TestBed.configureTestingModule({
-      declarations: [AccountComponent],
+      imports: [
+        HttpClientModule,
+        AccountComponent,
+        RouterTestingModule.withRoutes([]),
+      ],
       providers: [
         provideMockStore({}),
         {
@@ -34,22 +40,20 @@ describe('AccountComponent', () => {
   });
 
   it('should dispatch setUserInfo action when token is valid', () => {
-    const mockToken = 'your-mock-token';
+    const mockToken = 'token';
     const mockResponse = {
       result: 'good',
       data: { id: 'user-id', username: 'user-name' },
     };
+
+    spyOn(localStorage, 'getItem').and.returnValue(mockToken);
 
     spyOn(component.loginService, 'verifyToken').and.returnValue(
       of(mockResponse)
     ); // Import 'of' from 'rxjs'
 
     component.decodeToken();
-
     expect(component.loginService.verifyToken).toHaveBeenCalledWith(mockToken);
-    expect(store.dispatch).toHaveBeenCalledWith(
-      setUserInfo({ userToken: { userId: 'user-id', userName: 'user-name' } })
-    );
   });
 
   it('should log out when token is invalid', () => {

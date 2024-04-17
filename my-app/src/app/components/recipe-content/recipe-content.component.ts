@@ -8,12 +8,9 @@ import { MyRecipeService } from '../../services/my-recipe.service';
 import { LoginService } from '../../services/login.service';
 
 import { Store, select } from '@ngrx/store';
-import { firstValueFrom } from 'rxjs';
 
-import { toggleFavorites } from '../../store/recipes/recipe.actions';
 import { selectUserId, selectUserName } from '../../store/auth/auth.selector';
 import { AppState } from '../../store/app.state';
-import { selectShowOnlyFavorites } from '../../store/recipes/recipe.selector';
 
 @Component({
   selector: 'app-recipe-content',
@@ -51,21 +48,7 @@ export class RecipeContentComponent {
     fav: false,
   };
   showOnlyFavorites: boolean = false;
-
-  manageAddFavorite(id: string) {
-    this.starIcon = !this.starIcon;
-    this.recipesService
-      .update(this.userId, this.recipeSelected)
-      .subscribe((res: any) => {
-        console.log(res);
-      });
-    this.manageReadAllRecipes();
-  }
-  toggleFavorites() {
-    this.showOnlyFavorites = !this.showOnlyFavorites;
-    console.log(this.showOnlyFavorites);
-    this.manageReadAllRecipes();
-  }
+  
   manageReadAllRecipes() {
     this.store.pipe(select(selectUserId)).subscribe((userid: string) => {
       this.userId = userid;
